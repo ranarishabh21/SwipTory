@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 
 const authRoutes = require("./routes/authRoutes");
+const storyRoutes = require("./routes/storyRoutes")
 
 // DB connection
 mongoose
@@ -25,6 +26,7 @@ app.get("/api/health", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/story", storyRoutes);
 
 // Starting server
 const PORT = process.env.PORT;
